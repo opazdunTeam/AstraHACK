@@ -8,7 +8,7 @@ ReactDOM.render(
   <Router>
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/:chats" element={<Сhats />} />
+      <Route path="/chats" element={<Сhats />} />
     </Routes>
   </Router>,
   document.getElementById('root')
