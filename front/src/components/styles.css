@@ -1,15 +1,15 @@
 /* styles.css */
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
 }
 
 .chats-page {
   display: flex;
   height: 100vh;
-  background-color: #f0f2f5;
+  background-color: #fff;
 }
 
 .chat-list {
@@ -23,7 +23,6 @@ body {
   margin: 10px;
   padding: 10px;
   cursor: pointer;
-  border: 1px solid #ddd;
   border-radius: 10px;
 }
 
@@ -34,21 +33,30 @@ body {
 .chat-container {
   flex: 1;
   display: flex;
+  background-color: #99BA92;
   flex-direction: column;
   overflow: hidden; /* Скрываем прокрутку у контейнера */
 }
 
-.chat-window {
+.chat-window-wrapper {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.chat-window {
+  width: 60%;
+  max-width: 800px;
+  min-width: 300px;
   padding: 10px;
-  background-color: #fff;
-  overflow-y: auto; /* Прокрутка у окна чата */
   box-sizing: border-box;
-  margin: 0; /* Убираем отступы */
+  display: flex;
+  flex-direction: column;
 }
 
 .message {
-  max-width: 60%;
+  max-width: 65%;
   padding: 10px;
   border-radius: 15px;
   margin-bottom: 10px;
@@ -58,61 +66,94 @@ body {
 }
 
 .my-message {
-  max-width: 40%;
-  background-color: #dcf8c6;
+  background-color: rgb(238,255,222);
   border: 1px solid #a0d6b4;
   color: #333;
   align-self: flex-end;
 }
 
 .other-message {
-max-width: 40%;
   background-color: #fff;
   border: 1px solid #ddd;
   color: #333;
   align-self: flex-start;
 }
 
+.message-text {
+  margin-bottom: 5px;
+}
 
 .message-time {
   font-size: 0.8em;
   color: #999;
-  align-self: flex-end;
   text-align: right;
 }
 
 .message-input-container {
   position: sticky;
-  bottom: 0;
   padding: 10px;
-  border-top: 1px solid #ddd;
-  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   box-sizing: border-box;
+}
+
+.message-input-container::before {
+  content: ''; /* Пустое содержание для псевдоэлемента */
+  position: absolute;
+  top: 0; /* Позиция вверху */
+  left: 50%; /* Центрирование по горизонтали */
+  transform: translateX(-50%); /* Корректировка позиционирования */
+  width: 62%; /* Фиксированная длина границы */
+  height: 1px; /* Фиксированная ширина границы */
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 2%, rgba(255, 255, 255, 0.4) 98%, rgba(255, 255, 255, 0) 100%);
+  transition: opacity 350ms ease;
+}
+
+.message-input-wrapper {
+  width: 60%;
+  max-width: 800px;
+  min-width: 300px;
+  border: none;
 }
 
 .message-input {
   display: flex;
   width: 100%;
-  box-sizing: border-box;
+  align-items: flex-end;
 }
 
-.message-input input {
+.message-input textarea {
   flex: 1;
+  max-height: 33vh; /* Максимальная высота текстового поля */
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: none;
+  outline: none;
+  border-radius: 10px 10px 0px 10px;
+  resize: none; /* Убираем возможность изменения размеров поля пользователем */
+  overflow-y: auto; /* Вертикальная прокрутка */
   box-sizing: border-box;
+  height: auto;
+  min-height: 40px; /* Минимальная высота текстового поля */
+}
+
+.svg-appendix{
+  margin-bottom: -0.2rem;
+  margin-right: -0.5rem;
+  width: .5625rem;
+  height: 1.25rem;
 }
 
 .message-input button {
   margin-left: 10px;
+  margin-bottom: 8px;
   padding: 10px;
   background-color: #4caf50;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  box-sizing: border-box;
 }
 
 .message-input button:hover {
