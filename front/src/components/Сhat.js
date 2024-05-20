@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
-import './Chats.css';
+import './Chat.css';
 
 const socket = io('http://localhost:3001'); // Если сервер на порту 3001
 
-const Chats = () => {
+const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState('');
   const messagesEndRef = useRef(null);
@@ -69,4 +69,4 @@ const Chats = () => {
   );
 };
 
-export default Chats;
+export default Chat;
