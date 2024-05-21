@@ -11,6 +11,7 @@ const ChatWindow = ({ messages, onSendMessage }) => {
   };
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
       handleSend();
     }
   };
@@ -23,6 +24,13 @@ const ChatWindow = ({ messages, onSendMessage }) => {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
+//  const messages = [
+//    { text: "Привет!", isMine: true, username: "User1" },
+//    { text: "Как дела?", isMine: false, username: "User2" },
+//    { text: "Отлично, спасибо!", isMine: true, username: "User1" },
+//    { text: "Рад слышать!", isMine: false, username: "User2" },
+//  ];
+
 
   return (
     <div className="chat-container">
@@ -30,6 +38,7 @@ const ChatWindow = ({ messages, onSendMessage }) => {
         <div className="chat-window">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.isMine ? 'my-message' : 'other-message'}`}>
+              {!msg.isMine && <div className="message-username">{msg.username}</div>}
               <div className="message-text">
                 {msg.text}
               </div>

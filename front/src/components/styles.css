@@ -80,6 +80,11 @@ body {
   align-self: flex-start;
 }
 
+.message-username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 .message-text {
   margin-bottom: 5px;
 }
