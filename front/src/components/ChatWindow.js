@@ -24,6 +24,7 @@ const ChatWindow = ({ messages, onSendMessage }) => {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   };
+// Пример использования добавления имён к сообщениям
 //  const messages = [
 //    { text: "Привет!", isMine: true, username: "User1" },
 //    { text: "Как дела?", isMine: false, username: "User2" },
