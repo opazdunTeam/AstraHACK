@@ -1,9 +1,10 @@
 /* styles.css */
 body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .chats-page {
@@ -12,17 +13,33 @@ body {
   background-color: #fff;
 }
 
+.select-chat-prompt{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .chat-list {
   width: 25%;
+  padding: 0.5rem 0rem 0.5rem 0.5rem;
   border-right: 1px solid #ddd;
   background-color: #fff;
   overflow-y: auto;
   font-size: 1em;
+  overflow-x: hidden;
+}
+
+@media only screen and (min-width: 601px) and (max-width: 925px) {
+  .chat-list {
+    width:  30%;
+  }
 }
 
 .chat-list-item {
-  margin: 10px;
-  padding: 10px;
+  margin-left: 0.4rem;
+  padding: .7rem;
   cursor: pointer;
   border-radius: 10px;
 }
@@ -31,12 +48,42 @@ body {
   background-color: #f0f0f0;
 }
 
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-name {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.last-message-time {
+  font-size: 0.8em;
+  color: #999;
+}
+
+.chat-name {
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.last-message {
+  margin-left: 3%;
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .chat-container {
   flex: 1;
   display: flex;
   background-color: #99BA92;
   flex-direction: column;
-  overflow: hidden; /* Скрываем прокрутку у контейнера */
+  overflow: hidden;
 }
 
 .chat-window-wrapper {
@@ -50,7 +97,7 @@ body {
   width: 60%;
   max-width: 800px;
   min-width: 200px;
-  padding: 10px;
+  padding: .7rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -58,9 +105,9 @@ body {
 
 .message {
   max-width: 65%;
-  padding: 10px;
+  padding: .7rem;
   border-radius: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 0.7rem;
   position: relative;
   word-wrap: break-word;
   box-sizing: border-box;
@@ -82,11 +129,11 @@ body {
 
 .message-username {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0.4rem;
 }
 
 .message-text {
-  margin-bottom: 5px;
+  margin-bottom: 0.4rem;
 }
 
 .message-time {
@@ -97,7 +144,7 @@ body {
 
 .message-input-container {
   position: sticky;
-  padding: 10px;
+  padding: .7rem;
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0);
@@ -133,7 +180,7 @@ body {
 .message-input textarea {
   flex: 1;
   max-height: 33vh; /* Максимальная высота текстового поля */
-  padding: 10px;
+  padding: .7rem;
   border: none;
   outline: none;
   border-radius: 10px 10px 0px 10px;

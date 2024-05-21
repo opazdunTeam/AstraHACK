@@ -44,7 +44,7 @@ const ChatWindow = ({ messages, onSendMessage }) => {
                 {msg.text}
               </div>
               <div className="message-time">
-                {new Date().toLocaleTimeString()/*msg.time*/}
+                {msg.time}
               </div>
             </div>
           ))}

@@ -6,8 +6,16 @@ import './WebsiteHeader.css';
 const WebsiteHeader = () => {
   const navigate = useNavigate();
 
-  const testHandleButtonClick = () => {
+  const chatsHandleButtonClick = () => {
     navigate('/chats');
+  };
+
+  const loginHandleButtonClick = () => {
+    navigate('/login');
+  };
+
+  const registrationHandleButtonClick = () => {
+    navigate('/register');
   };
 
   return (
@@ -19,9 +27,9 @@ const WebsiteHeader = () => {
         </div>
       </Link>
       <div className="actions">
-        <button onClick={testHandleButtonClick} className="action-button">Чат (For testing)</button>
-        <button className="action-button">Авторизация</button>
-        <button className="action-button">Регистрация</button>
+        <button onClick={chatsHandleButtonClick} className="action-button">Чат (For testing)</button>
+        <button onClick={loginHandleButtonClick} className="action-button">Авторизация</button>
+        <button onClick={registrationHandleButtonClick} className="action-button">Регистрация</button>
       </div>
     </header>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
-    import './styles.css';
+import './ChatsPage.css';
 
 const ChatsPage = () => {
   const [chats, setChats] = useState([
@@ -17,11 +17,12 @@ const ChatsPage = () => {
 
   const handleSendMessage = (message) => {
     if (selectedChat) {
+      const newMessage = { text: message, isMine: true, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) };
       const updatedChats = chats.map((chat) => {
         if (chat.id === selectedChat.id) {
           return {
             ...chat,
-            messages: [...chat.messages, { text: message, isMine: true }],
+            messages: [...chat.messages, newMessage],
           };
         }
         return chat;
@@ -29,7 +30,7 @@ const ChatsPage = () => {
       setChats(updatedChats);
       setSelectedChat({
         ...selectedChat,
-        messages: [...selectedChat.messages, { text: message, isMine: true }],
+        messages: [...selectedChat.messages, newMessage],
       });
     }
   };
@@ -41,7 +42,7 @@ const ChatsPage = () => {
         {selectedChat ? (
           <ChatWindow messages={selectedChat.messages} onSendMessage={handleSendMessage} />
         ) : (
-          <div className="select-chat-prompt">Выберите чат для просмотра</div>
+          <div className="select-chat-prompt"><h1>Выберите чат для просмотра</h1></div>
         )}
       </div>
     </div>
