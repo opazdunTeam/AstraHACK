@@ -65,16 +65,17 @@ body {
 
 @media only screen and (min-width: 601px) and (max-width: 925px) {
   .chat-list {
-    width:  30%;
+    width: 30%;
   }
 }
 
 .chat-list-item {
-  margin-left: 0.4rem;
+  display: flex;
+  align-items: center;
   padding: .7rem;
   cursor: pointer;
   border-radius: 10px;
-  position: relative;
+  margin-left: 0.4rem;
 }
 
 .chat-list-item:hover {
@@ -87,17 +88,24 @@ body {
   width: 100%;
 }
 
-.chat-list-avatar {
+.chat-avatar {
   width: 3.375rem;
   height: 3.375rem;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
-.grid-wrapper {
+.chat-details {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0.4rem 0.4rem 0rem 0.4rem;
-  flex-grow: 1;
+  width: calc(100% - 3.8rem);
+}
+
+.chat-name-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .chat-name {
@@ -105,24 +113,18 @@ body {
 }
 
 .last-message-time {
-  self-align: end;
   font-size: 0.8em;
   color: #999;
 }
 
-.chat-name {
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-}
-
 .last-message {
-  margin-left: 3%;
   color: #666;
   font-size: 0.9em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 
 .chat-container {
   flex: 1;

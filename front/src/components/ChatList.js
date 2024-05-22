@@ -1,14 +1,12 @@
-// файл отображения списка чатов
 import React from 'react';
 
 const truncateText = (text, maxLength) => {
-  if (!text) return ''; // Добавлено для предотвращения ошибки
+  if (!text) return '';
   if (text.length <= maxLength) {
     return text;
   }
   return text.substr(0, maxLength) + '...';
 };
-
 
 const ChatList = ({ chats, onSelectChat }) => {
   return (
@@ -18,16 +16,17 @@ const ChatList = ({ chats, onSelectChat }) => {
         return (
           <div key={index} className="chat-list-item" onClick={() => onSelectChat(chat)}>
             <div className="chat-header">
-              <img src={'https://cs14.pikabu.ru/post_img/2021/05/08/12/16205042291362743.jpg'} alt="Avatar" className="chat-list-avatar" />
-              <div className="grid-wrapper">
-                <div className="chat-name">{chat.name}</div>
+              <img src={chat.avatar} alt="Avatar" className="chat-avatar" />
+              <div className="chat-details">
+                <div className="chat-name-time">
+                  <span className="chat-name">{chat.name}</span>
+                  {lastMessage && <span className="last-message-time">{lastMessage.time}</span>}
+                </div>
                 <div className="last-message">
                   {lastMessage ? truncateText(lastMessage.text, 50) : ''}
                 </div>
               </div>
-              {lastMessage && <div className="last-message-time">{lastMessage.time}</div>}
             </div>
-
           </div>
         );
       })}
@@ -36,4 +35,3 @@ const ChatList = ({ chats, onSelectChat }) => {
 };
 
 export default ChatList;
-
