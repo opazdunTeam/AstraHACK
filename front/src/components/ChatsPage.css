@@ -22,6 +22,7 @@
   font-size: 0.9em;
 }
 
+
 .message-file a {
   color: #0066cc;
   text-decoration: none;
@@ -143,12 +144,14 @@ body {
 
 .chat-window {
   width: 60%;
+  height: 100%;
   max-width: 800px;
   min-width: 200px;
-  padding: .7rem;
+  padding-top: .6rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 
 .message {

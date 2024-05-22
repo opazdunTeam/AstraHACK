@@ -1,5 +1,5 @@
 // элемент чата на странице
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 import ChatHeader from './ChatHeader';
 
 const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
@@ -7,8 +7,10 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   const [fileMessage, setFileMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showFileModal, setShowFileModal] = useState(false);
+  const chatContainerRef = useRef(null);
   useEffect(() => {
     autoResizeTextarea(document.getElementById('messageInput'));
+    scrollToBottom();
   }, [message]);
 
   useEffect(() => {
@@ -23,6 +25,11 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
       if (textarea) {
         textarea.style.height = 'auto';
       }
+    }
+  };
+  const scrollToBottom = () => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   };
   const handleKeyPress = (e) => {
@@ -122,7 +129,7 @@ const handleFileInputChange = (e) => {
          avatar={chatAvatar}
          name={chatName}
        />
-      <div className="chat-window-wrapper">
+      <div className="chat-window-wrapper" ref={chatContainerRef}>
         <div className="chat-window">
           {messages.map((msg, index) => (
             <div key={index} className={`message ${msg.isMine ? 'my-message' : 'other-message'}`}>
