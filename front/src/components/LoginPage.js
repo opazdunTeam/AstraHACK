@@ -16,7 +16,7 @@ const LoginPage = () => {
       <div className="login-form">
         <h2>Авторизация</h2>
         <form onSubmit={handleLogin}>
-          <div className="form-group">
+          <div className="log-form-group">
             <label htmlFor="username">Имя пользователя</label>
             <input
               type="text"
@@ -26,7 +26,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="log-form-group">
             <label htmlFor="password">Пароль</label>
             <input
               type="password"

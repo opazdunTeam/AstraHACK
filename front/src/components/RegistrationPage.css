@@ -1,3 +1,4 @@
+/* styles.css */
 body {
   margin: 0;
   padding: 0;
@@ -25,17 +26,18 @@ body {
   margin-bottom: 20px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.reg-form-group {
+  margin-bottom: 30px;
+  position: relative;
 }
 
-.form-group label {
+.reg-form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-group input {
+.reg-form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -43,7 +45,24 @@ body {
   box-sizing: border-box;
 }
 
-.registration-form button {
+.reg-password-container {
+  display: flex;
+  align-items: center;
+}
+
+.reg-password-container input {
+  flex: 1;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.reg-submit-button {
   width: 100%;
   padding: 10px;
   background-color: #4caf50;
@@ -52,8 +71,30 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1em;
+  transition: 0.3s ease;
 }
 
-.registration-form button:hover {
+.reg-submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.reg-submit-button:hover:enabled {
   background-color: #45a049;
+}
+
+.reg-error-message {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reg-success-message {
+  color: green;
+  margin-top: 10px;
 }

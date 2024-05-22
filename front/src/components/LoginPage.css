@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.login-container, .registration-container {
+.login-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +12,7 @@ body {
   background-color: #f0f2f5;
 }
 
-.login-form, .registration-form {
+.login-form{
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
@@ -21,21 +21,21 @@ body {
   max-width: 400px;
 }
 
-.login-form h2, .registration-form h2 {
+.login-form h2{
   margin-bottom: 20px;
 }
 
-.form-group {
+.log-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.log-form-group label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-group input {
+.log-form-group input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
@@ -43,7 +43,7 @@ body {
   box-sizing: border-box;
 }
 
-.login-form button, .registration-form button {
+.login-form button{
   width: 100%;
   padding: 10px;
   background-color: #4caf50;
@@ -54,6 +54,6 @@ body {
   font-size: 1em;
 }
 
-.login-form button:hover, .registration-form button:hover {
+.login-form button:hover{
   background-color: #45a049;
 }
