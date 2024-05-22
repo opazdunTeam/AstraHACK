@@ -1,4 +1,4 @@
-// файл для отображения и логики страницы чатов
+// файл для отображения страницы и логики страницы чатов
 import React, { useState } from 'react';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
@@ -18,25 +18,29 @@ const ChatsPage = () => {
     setSelectedChat(chat);
   };
 
-  const handleSendMessage = (message) => {
+  const handleSendMessage = (newMessages) => {
     if (selectedChat) {
-      const newMessage = { text: message, isMine: true, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) };
+      const updatedMessages = [...selectedChat.messages, ...newMessages];
+
       const updatedChats = chats.map((chat) => {
         if (chat.id === selectedChat.id) {
           return {
             ...chat,
-            messages: [...chat.messages, newMessage],
+            messages: updatedMessages,
           };
         }
         return chat;
       });
+
       setChats(updatedChats);
       setSelectedChat({
         ...selectedChat,
-        messages: [...selectedChat.messages, newMessage],
+        messages: updatedMessages,
       });
     }
   };
+
+
 
   return (
     <div className="chats-page">
