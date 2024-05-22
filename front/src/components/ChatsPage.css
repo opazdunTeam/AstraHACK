@@ -13,9 +13,9 @@
   transition: .2s opacity;
 }
 
-.svg-upload svg:hover {
+/*.svg-upload svg:hover {
   background-color: #4caf50;
-}
+}*/
 
 .message-file {
   margin-top: 0.5rem;
@@ -309,6 +309,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  resize: none; /* Убираем возможность изменения размеров поля пользователем */
+  overflow-y: auto; /* Вертикальная прокрутка */
+  box-sizing: border-box;
+  height: auto;
+  min-height: 40px; /* Минимальная высота текстового поля */
 }
 
 .file-input-wrapper textarea {

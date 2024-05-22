@@ -1,5 +1,5 @@
 // элемент чата на странице
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import ChatHeader from './ChatHeader';
 
 const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
@@ -7,6 +7,13 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   const [fileMessage, setFileMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showFileModal, setShowFileModal] = useState(false);
+  useEffect(() => {
+    autoResizeTextarea(document.getElementById('messageInput'));
+  }, [message]);
+
+  useEffect(() => {
+    autoResizeTextarea(document.getElementById('fileMessageInput'));
+  }, [fileMessage]);
 
   const handleSend = () => {
     if (message.trim() || selectedFiles.length > 0) {
@@ -24,14 +31,20 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
       handleSend();
     }
   };
-  const handleInputChange = (e) => {
-    setMessage(e.target.value);
-    autoResizeTextarea(e.target);
+  const handleInputChange = (e, type) => {
+    if (type === 'message') {
+      setMessage(e.target.value);
+    } else if (type === 'fileMessage') {
+      setFileMessage(e.target.value);
+    }
   };
   const autoResizeTextarea = (textarea) => {
-    textarea.style.height = 'auto';
-    textarea.style.height = `${textarea.scrollHeight}px`;
+    if (textarea) {
+      textarea.style.height = 'auto';
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
   };
+
 // Пример использования добавления имён к сообщениям
 //  const messages = [
 //    { text: "Привет!", isMine: true, username: "User1" },
@@ -39,28 +52,17 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
 //    { text: "Отлично, спасибо!", isMine: true, username: "User1" },
 //    { text: "Рад слышать!", isMine: false, username: "User2" },
 //  ];
-  const handleFileClick = () => { // обработчик клика по SVG для загрузки файла
+  const handleFileClick = () => {
     document.getElementById('fileInput').click();
+    autoResizeTextarea(document.getElementById('messageInput'));
   };
   const handleFileChange = (e) => {
     setSelectedFiles([...selectedFiles, ...e.target.files]);
+    transferText();
     setShowFileModal(true);
   };
 
-  const handleSendFiles = () => {
-    if (selectedFiles.length > 0) {
-      selectedFiles.forEach((file) => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          onSendMessage({ file, message });
-        };
-        reader.readAsDataURL(file);
-      });
-      setSelectedFiles([]);
-      setShowFileModal(false);
-      setMessage('');
-    }
-  };
+
   const handleSendFilesSequentially = () => {
     const newMessages = [];
     for (const file of selectedFiles) {
@@ -73,6 +75,13 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
     if (message.trim()) {
       newMessages.push({
         text: message.trim(),
+        isMine: true,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      });
+    }
+    else if (fileMessage.trim()) {
+      newMessages.push({
+        text: fileMessage.trim(),
         isMine: true,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       });
@@ -90,9 +99,22 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   };
   const handleCloseFileModal = () => {
     setSelectedFiles([]);
+    transferText();
     setShowFileModal(false);
   };
+  const transferText = () => {
+    if (showFileModal) {
+      setMessage(fileMessage);
+      setFileMessage('');
 
+    } else {
+      setFileMessage(message);
+      setMessage('');
+    }
+  };
+const handleFileInputChange = (e) => {
+  setFileMessage(e.target.value);
+};
 
   return (
     <div className="chat-container">
@@ -122,7 +144,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
             <textarea
               id="messageInput"
               value={message}
-              onChange={handleInputChange}
+              onChange={(e) => handleInputChange(e, 'message')}
               onKeyPress={handleKeyPress}
               placeholder="Введите сообщение..."
             />
@@ -161,8 +183,8 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
           <div className="file-input-wrapper">
             <textarea
               id="fileMessageInput"
-              value={message}
-              onChange={handleInputChange}
+              value={fileMessage}
+              onChange={handleFileInputChange} // Обработчик изменения для поля ввода файла
               onKeyPress={handleKeyPress}
               placeholder="Введите сообщение..."
             />
