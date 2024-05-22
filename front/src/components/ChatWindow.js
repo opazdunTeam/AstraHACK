@@ -11,7 +11,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   useEffect(() => {
     autoResizeTextarea(document.getElementById('messageInput'));
     scrollToBottom();
-  }, [message]);
+  }, [message, fileMessage, selectedFiles]);
 
   useEffect(() => {
     autoResizeTextarea(document.getElementById('fileMessageInput'));
