@@ -1,4 +1,9 @@
+// файл отображения колонки чатов
 import React from 'react';
+
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+};
 
 const ChatList = ({ chats, onSelectChat }) => {
   return (
@@ -19,10 +24,6 @@ const ChatList = ({ chats, onSelectChat }) => {
       })}
     </div>
   );
-};
-
-const truncateText = (text, maxLength) => {
-  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
 export default ChatList;

@@ -1,3 +1,4 @@
+// файл для отображения и логики страницы чатов
 import React, { useState } from 'react';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';

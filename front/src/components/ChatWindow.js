@@ -1,3 +1,4 @@
+// элемент чата на странице
 import React, { useState } from 'react';
 
 const ChatWindow = ({ messages, onSendMessage }) => {
