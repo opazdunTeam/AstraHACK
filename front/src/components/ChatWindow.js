@@ -4,17 +4,17 @@ import ChatHeader from './ChatHeader';
 
 const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   const [message, setMessage] = useState('');
+  const [fileMessage, setFileMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showFileModal, setShowFileModal] = useState(false);
-
 
   const handleSend = () => {
     if (message.trim() || selectedFiles.length > 0) {
       handleSendFilesSequentially();
-      setMessage(''); // Сбрасываем сообщение
-      const textarea = document.getElementById('messageInput'); // Получаем элемент textarea
+      setMessage('');
+      const textarea = document.getElementById('messageInput');
       if (textarea) {
-        textarea.style.height = 'auto'; // Сбрасываем высоту текстового поля
+        textarea.style.height = 'auto';
       }
     }
   };
@@ -82,6 +82,11 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
     setSelectedFiles([]);
     setShowFileModal(false);
     setMessage('');
+    setFileMessage('');
+    const fileTextarea = document.getElementById('fileMessageInput');
+    if (fileTextarea) {
+      fileTextarea.style.height = 'auto';
+    }
   };
   const handleCloseFileModal = () => {
     setSelectedFiles([]);
@@ -155,6 +160,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
           </div>
           <div className="file-input-wrapper">
             <textarea
+              id="fileMessageInput"
               value={message}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}

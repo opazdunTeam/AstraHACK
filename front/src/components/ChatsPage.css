@@ -195,7 +195,6 @@ body {
   padding: .7rem;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0);
   background-color: transparent;
   box-sizing: border-box;
 }
@@ -309,9 +308,11 @@ body {
 .file-input-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
 .file-input-wrapper textarea {
+  max-height: 20vh;
   flex: 1;
   resize: none;
   padding: 0.5rem;
