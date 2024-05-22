@@ -166,29 +166,32 @@ const handleFileInputChange = (e) => {
         </div>
       </div>
       {showFileModal && (
-        <div className="file-modal">
-          <div className="file-modal-header">
-            <button onClick={handleCloseFileModal}>✖</button>
-            <span>Отправить {selectedFiles.length} файл(а/ов)</span>
-            <button onClick={handleFileClick}>➕</button>
-          </div>
-          <div className="file-list">
-            {selectedFiles.map((file, index) => (
-              <div key={index} className="file-item">
-                <span>{file.name}</span>
-                <span>{(file.size / 1024).toFixed(1)} KB</span>
-              </div>
-            ))}
-          </div>
-          <div className="file-input-wrapper">
-            <textarea
-              id="fileMessageInput"
-              value={fileMessage}
-              onChange={handleFileInputChange} // Обработчик изменения для поля ввода файла
-              onKeyPress={handleKeyPress}
-              placeholder="Введите сообщение..."
-            />
-            <button onClick={handleSendFilesSequentially}>Отправить</button>
+        <div>
+          <div className="overlay" onClick={handleCloseFileModal}></div>
+          <div className="file-modal">
+            <div className="file-modal-header">
+              <button onClick={handleCloseFileModal}>✖</button>
+              <span>Отправить {selectedFiles.length} файл(а/ов)</span>
+              <button onClick={handleFileClick}>➕</button>
+            </div>
+            <div className="file-list">
+              {selectedFiles.map((file, index) => (
+                <div key={index} className="file-item">
+                  <span>{file.name}</span>
+                  <span>{(file.size / 1024).toFixed(1)} KB</span>
+                </div>
+              ))}
+            </div>
+            <div className="file-input-wrapper">
+              <textarea
+                id="fileMessageInput"
+                value={fileMessage}
+                onChange={handleFileInputChange} // Обработчик изменения для поля ввода файла
+                onKeyPress={handleKeyPress}
+                placeholder="Введите сообщение..."
+              />
+              <button onClick={handleSendFilesSequentially}>Отправить</button>
+            </div>
           </div>
         </div>
       )}
