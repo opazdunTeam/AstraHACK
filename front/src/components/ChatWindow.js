@@ -1,5 +1,6 @@
 // элемент чата на странице
 import React, { useState } from 'react';
+import ChatHeader from './ChatHeader';
 
 const ChatWindow = ({ messages, onSendMessage }) => {
   const [message, setMessage] = useState('');
@@ -88,6 +89,10 @@ const ChatWindow = ({ messages, onSendMessage }) => {
 
   return (
     <div className="chat-container">
+       <ChatHeader
+         avatar="https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg"
+         name="Имя собеседника"
+       />
       <div className="chat-window-wrapper">
         <div className="chat-window">
           {messages.map((msg, index) => (

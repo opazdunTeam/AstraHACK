@@ -18,12 +18,16 @@ const ChatList = ({ chats, onSelectChat }) => {
         return (
           <div key={index} className="chat-list-item" onClick={() => onSelectChat(chat)}>
             <div className="chat-header">
-              <div className="chat-name">{chat.name}</div>
+              <img src={'https://cs14.pikabu.ru/post_img/2021/05/08/12/16205042291362743.jpg'} alt="Avatar" className="chat-list-avatar" />
+              <div className="grid-wrapper">
+                <div className="chat-name">{chat.name}</div>
+                <div className="last-message">
+                  {lastMessage ? truncateText(lastMessage.text, 50) : ''}
+                </div>
+              </div>
               {lastMessage && <div className="last-message-time">{lastMessage.time}</div>}
             </div>
-            <div className="last-message">
-              {lastMessage ? truncateText(lastMessage.text, 50) : ''}
-            </div>
+
           </div>
         );
       })}
