@@ -11,6 +11,11 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   const handleSend = () => {
     if (message.trim() || selectedFiles.length > 0) {
       handleSendFilesSequentially();
+      setMessage(''); // Сбрасываем сообщение
+      const textarea = document.getElementById('messageInput'); // Получаем элемент textarea
+      if (textarea) {
+        textarea.style.height = 'auto'; // Сбрасываем высоту текстового поля
+      }
     }
   };
   const handleKeyPress = (e) => {
@@ -51,7 +56,6 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
         };
         reader.readAsDataURL(file);
       });
-      //  document.write(message.file)
       setSelectedFiles([]);
       setShowFileModal(false);
       setMessage('');
@@ -59,7 +63,6 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   };
   const handleSendFilesSequentially = () => {
     const newMessages = [];
-
     for (const file of selectedFiles) {
       newMessages.push({
         file,
@@ -67,7 +70,6 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       });
     }
-
     if (message.trim()) {
       newMessages.push({
         text: message.trim(),
@@ -113,6 +115,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
         <div className="message-input-wrapper">
           <div className="message-input">
             <textarea
+              id="messageInput"
               value={message}
               onChange={handleInputChange}
               onKeyPress={handleKeyPress}
@@ -154,6 +157,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
             <textarea
               value={message}
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
               placeholder="Введите сообщение..."
             />
             <button onClick={handleSendFilesSequentially}>Отправить</button>
