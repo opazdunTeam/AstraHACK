@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import ChatHeader from './ChatHeader';
 
-const ChatWindow = ({ messages, onSendMessage }) => {
+const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
   const [message, setMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showFileModal, setShowFileModal] = useState(false);
@@ -90,8 +90,8 @@ const ChatWindow = ({ messages, onSendMessage }) => {
   return (
     <div className="chat-container">
        <ChatHeader
-         avatar="https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg"
-         name="Имя собеседника"
+         avatar={chatAvatar}
+         name={chatName}
        />
       <div className="chat-window-wrapper">
         <div className="chat-window">

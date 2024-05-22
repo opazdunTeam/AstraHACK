@@ -46,7 +46,7 @@ const ChatsPage = () => {
       <ChatList chats={chats} onSelectChat={handleSelectChat} />
       <div className="chat-container">
         {selectedChat ? (
-          <ChatWindow messages={selectedChat.messages} onSendMessage={handleSendMessage} />
+          <ChatWindow chatName={selectedChat.name} chatAvatar={selectedChat.avatar} messages={selectedChat.messages} onSendMessage={handleSendMessage} />
         ) : (
           <div className="select-chat-prompt"><h1>Выберите чат для просмотра</h1></div>
         )}

@@ -4,7 +4,7 @@ import './ChatHeader.css';
 const ChatHeader = ({ avatar, name }) => {
   return (
     <div className="chat-header-container">
-      <img src={avatar} alt="Avatar" className="chat-header-avatar" />
+      <img src={avatar} alt="Avatar" className="chat-avatar" />
       <span className="chat-header-name">{name}</span>
       <button className="chat-header-button">
         <svg fill="#000000" height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 473.806 473.806" >
