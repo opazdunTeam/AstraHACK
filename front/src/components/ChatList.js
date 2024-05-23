@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 
-const truncateText = (text, maxLength) => {
-  if (!text) return '';
-  if (text.length <= maxLength) {
-    return text;
-  }
-  return text.substr(0, maxLength) + '...';
-};
+
 
 const ChatList = ({ chats, onSelectChat }) => {
   const [selectedChatId, setSelectedChatId] = useState(null);
@@ -14,6 +8,13 @@ const ChatList = ({ chats, onSelectChat }) => {
   const handleSelectChat = (chat) => {
     setSelectedChatId(chat.id);
     onSelectChat(chat);
+  };
+  const truncateText = (text, maxLength) => {
+    if (!text) return '';
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substr(0, maxLength) + '...';
   };
 
   return (

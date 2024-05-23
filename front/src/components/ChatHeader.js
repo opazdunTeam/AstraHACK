@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import './ChatHeader.css';
 
-const ChatHeader = ({ avatar, name }) => {
+const ChatHeader = ({ avatar, name, backButton }) => {
   return (
     <div className="chat-header-container">
+      <button className="back-button" onClick={backButton}>
+        <svg height="30" viewBox="0 0 512 512" width="30" xmlns="http://www.w3.org/2000/svg">
+          <title/>
+          <polyline points="244 400 100 256 244 112" style={{fill:"none",stroke:"#000",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"48px"}}/>
+          <line style={{fill:"none",stroke:"#000",strokeLinecap:"round",strokeLinejoin:"round",strokeWidth:"48px"}} x1="120" x2="412" y1="256" y2="256"/>
+        </svg>
+      </button>
       <img src={avatar} alt="Avatar" className="chat-avatar" />
       <span className="chat-header-name">{name}</span>
       <button className="chat-header-button">

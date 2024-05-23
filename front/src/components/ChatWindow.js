@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef  } from 'react';
 import ChatHeader from './ChatHeader';
 
-const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage }) => {
+const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonClick }) => {
   const [message, setMessage] = useState('');
   const [fileMessage, setFileMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -128,6 +128,7 @@ const handleFileInputChange = (e) => {
        <ChatHeader
          avatar={chatAvatar}
          name={chatName}
+         backButton={backButtonClick}
        />
       <div className="chat-window-wrapper" ref={chatContainerRef}>
         <div className="chat-window">
