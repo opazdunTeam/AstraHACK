@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const truncateText = (text, maxLength) => {
   if (!text) return '';
@@ -9,12 +9,25 @@ const truncateText = (text, maxLength) => {
 };
 
 const ChatList = ({ chats, onSelectChat }) => {
+  const [selectedChatId, setSelectedChatId] = useState(null);
+
+  const handleSelectChat = (chat) => {
+    setSelectedChatId(chat.id);
+    onSelectChat(chat);
+  };
+
   return (
     <div className="chat-list">
-      {chats.map((chat, index) => {
+      {chats.map((chat) => {
         const lastMessage = chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
+        const isSelected = chat.id === selectedChatId;
+
         return (
-          <div key={index} className="chat-list-item" onClick={() => onSelectChat(chat)}>
+          <div
+            key={chat.id}
+            className={`chat-list-item ${isSelected ? 'selected' : ''}`}
+            onClick={() => handleSelectChat(chat)}
+          >
             <div className="chat-header">
               <img src={chat.avatar} alt="Avatar" className="chat-avatar" />
               <div className="chat-details">
