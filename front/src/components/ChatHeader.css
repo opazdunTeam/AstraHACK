@@ -13,10 +13,18 @@
 }
 
 .chat-header-button{
+    height: 45px;
+    weight: 45px;
     background-color: transparent;
     border-radius: 50%;
     border:none;
     cursor: pointer;
+}
+.chat-header-button svg{
+    padding-top: 3px;
+}
+.chat-header-button:hover {
+  background-color: #f0f0f0;
 }
 
 .chat-header svg {

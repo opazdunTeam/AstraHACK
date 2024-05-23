@@ -7,7 +7,7 @@ const ChatHeader = ({ avatar, name }) => {
       <img src={avatar} alt="Avatar" className="chat-avatar" />
       <span className="chat-header-name">{name}</span>
       <button className="chat-header-button">
-        <svg fill="#000000" height="24px" width="24px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 473.806 473.806" >
+        <svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 473.806 473.806" >
           <g>
             <g>
               <path d="M374.456,293.506c-9.7-10.1-21.4-15.5-33.8-15.5c-12.3,0-24.1,5.3-34.2,15.4l-31.6,31.5c-2.6-1.4-5.2-2.7-7.7-4

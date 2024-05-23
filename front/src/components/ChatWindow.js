@@ -168,7 +168,9 @@ const handleFileInputChange = (e) => {
                 <path d="M54.35 31.22 32.94 50.75a13.65 13.65 0 0 1-19.3-19.3l21.41-19.53a9.1 9.1 0 0 1 12.87 12.87L26.51 44.31a4.55 4.55 0 0 1-6.43-6.43l21.45-19.57"/>
               </svg>
             </div>
-            <button onClick={handleSend}>Отправить</button>
+            <button onClick={handleSend}>
+              <svg fill="#000000" height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" viewBox="-23.45 -23.45 515.94 515.94" transform="rotate(45)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M465.023,4.079c-3.9-3.9-9.9-5-14.9-2.8l-442,193.7c-4.7,2.1-7.8,6.6-8.1,11.7s2.4,9.9,6.8,12.4l154.1,87.4l91.5,155.7 c2.4,4.1,6.9,6.7,11.6,6.7c0.3,0,0.5,0,0.8,0c5.1-0.3,9.5-3.4,11.6-8.1l191.5-441.8C470.123,13.879,469.023,7.979,465.023,4.079z M394.723,54.979l-226.2,224.7l-124.9-70.8L394.723,54.979z M262.223,425.579l-74.5-126.9l227.5-226L262.223,425.579z"></path> </g> </g></svg>
+            </button>
           </div>
         </div>
       </div>

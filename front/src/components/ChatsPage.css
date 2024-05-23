@@ -1,21 +1,22 @@
 .svg-upload {
   cursor: pointer;
-  margin-left: 10px;
-  margin-bottom: 0.5%;
+  margin-left: 1%;
 }
 
 .svg-upload svg {
   width: 40px;
   height: 40px;
+  transition: 0.3s ease;
   border: 1px solid;
   border-radius: 50%;
   border: none;
-  transition: .2s opacity;
+  background-color: #fff;
+  stroke: #000000;
 }
 
-/*.svg-upload svg:hover {
-  background-color: #4caf50;
-}*/
+.svg-upload svg:hover {
+  background-color: #3ec263;
+}
 
 .message-file {
   margin-top: 0.5rem;
@@ -45,6 +46,10 @@ body {
   height: 100vh;
   background-color: #fff;
 }
+.chats-page button svg {
+  padding-top: 3px;
+}
+
 
 .select-chat-prompt{
   height: 100%;
@@ -249,14 +254,13 @@ body {
 }
 
 .message-input button {
-  margin-left: 2.5%;
+  margin-left: 1%;
   margin-bottom: 0.5%;
-  padding: 2%;
-  color: #45a049;
   border: none;
-  border-radius: 4px;
+  border-radius: 50%;
   cursor: pointer;
-  width: 14%;
+  width: 40px;
+  height: 40px;
   font-size: 0.8em;
   overflow: hidden;
   transition: 0.3s ease;
@@ -264,8 +268,7 @@ body {
 }
 
 .message-input button:hover {
-  background-color: #4caf50;
-  color: #fff;
+  background-color: #3ec263;
 }
 
 .file-modal {
@@ -343,9 +346,15 @@ body {
 
 .file-input-wrapper button {
   background-color: #4caf50;
-  color: white;
+
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+.file-input-wrapper button:hover {
+  background-color: #3ec263;
+  color: white;
+  transition: 0.3s ease;
 }
