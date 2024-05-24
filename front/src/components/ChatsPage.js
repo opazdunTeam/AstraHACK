@@ -9,8 +9,8 @@ const ChatsPage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   //переменная для передачи информации по чатам
   const [chats, setChats] = useState([
-    { name: 'Тройственный союз', id: 1, avatar: 'https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg', messages: [] }, // messages: [ text: str, isMine: bool, time: Date ]
-    { name: 'Флуд 2.0', id: 2, avatar: 'path/to/avatar1.png', messages: [] },
+    { name: 'Андрей Беляев', id: 1, avatar: 'https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg', messages: [] }, // messages: [ text: str, isMine: bool, time: Date ]
+    { name: 'Александр Жданов', id: 2, avatar: 'https://otzz.ru/wp-content/uploads/2023/11/kuplinov-avatar-1.webp', messages: [] },
     // Добавьте больше чатов по необходимости
   ]);
 
