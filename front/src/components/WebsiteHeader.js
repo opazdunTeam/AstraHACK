@@ -27,7 +27,6 @@ const WebsiteHeader = () => {
         </div>
       </Link>
       <div className="actions">
-        <button onClick={chatsHandleButtonClick} className="action-button">Чат (For testing)</button>
         <button onClick={loginHandleButtonClick} className="action-button">Авторизация</button>
         <button onClick={registrationHandleButtonClick} className="action-button">Регистрация</button>
       </div>
