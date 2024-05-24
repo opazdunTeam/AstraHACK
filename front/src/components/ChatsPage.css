@@ -63,12 +63,75 @@ body {
   scrollbar-width: thin;
   scrollbar-color: rgb(128, 128, 128) rgb(0, 0, 0, 0);
   width: 25%;
-  padding: 0.5rem 0rem 0.5rem 0rem;
+  padding: 0.4rem 0rem 0.5rem 0rem;
   border-right: 1px solid #ddd;
   background-color: #fff;
   overflow-y: auto;
   font-size: 1em;
   overflow-x: hidden;
+}
+
+.searchUsersInput {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+  border: none;
+}
+
+.searchUsersInput svg {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.searchUsersInput input {
+  font-size: 17px;
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.suggestions-list li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #a6a6a6;
+}
+
+.suggestions-list img {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 @media (max-width: 900px) {

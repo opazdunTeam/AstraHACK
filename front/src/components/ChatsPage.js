@@ -64,7 +64,7 @@ const ChatsPage = () => {
   return (
     <div className="chats-page">
       {(!isMobile || !selectedChat) && (
-        <ChatList chats={chats} onSelectChat={handleSelectChat} />
+        <ChatList chats={chats} onSelectChat={handleSelectChat} handleGoButtonClick={handleSelectChat} />
       )}
       <div className="chat-container">
         {selectedChat ? (
