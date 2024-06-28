@@ -205,7 +205,8 @@ body {
 
 .chat-container {
 
-  background-image: url("C:\Users\egor-\PycharmProjects\astraHACK\front\public\Снимок экрана 2024-05-23 152501.png");
+/* front/src/components/ChatsPage.css */
+  background-image: url('../../public/Снимок экрана 2024-05-23 152501.png');
 
   flex: 1;
   display: flex;
