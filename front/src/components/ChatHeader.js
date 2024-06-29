@@ -1,3 +1,4 @@
+// плашка собеседника сверху чата
 import React, { useState } from 'react';
 import './ChatHeader.css';
 

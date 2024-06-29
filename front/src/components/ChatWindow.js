@@ -1,6 +1,7 @@
 // элемент чата на странице
 import React, { useState, useEffect, useRef  } from 'react';
 import ChatHeader from './ChatHeader';
+import FileMessage from './FileMessage';
 
 const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonClick }) => {
   const [message, setMessage] = useState('');
@@ -8,6 +9,8 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
   const [selectedFiles, setSelectedFiles] = useState([]);
   const [showFileModal, setShowFileModal] = useState(false);
   const chatContainerRef = useRef(null);
+
+
   useEffect(() => {
     autoResizeTextarea(document.getElementById('messageInput'));
     scrollToBottom();
@@ -27,17 +30,20 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
       }
     }
   };
+
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSend();
     }
   };
+
   const handleInputChange = (e, type) => {
     if (type === 'message') {
       setMessage(e.target.value);
@@ -45,6 +51,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
       setFileMessage(e.target.value);
     }
   };
+
   const autoResizeTextarea = (textarea) => {
     if (textarea) {
       textarea.style.height = 'auto';
@@ -53,7 +60,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
   };
 
 // Пример использования добавления имён к сообщениям
-//  const messages = [
+//  messages = [
 //    { text: "Привет!", isMine: true, username: "User1" },
 //    { text: "Как дела?", isMine: false, username: "User2" },
 //    { text: "Отлично, спасибо!", isMine: true, username: "User1" },
@@ -63,30 +70,49 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     document.getElementById('fileInput').click();
     autoResizeTextarea(document.getElementById('messageInput'));
   };
+
   const handleFileChange = (e) => {
-    setSelectedFiles([...selectedFiles, ...e.target.files]);
+    const files = Array.from(e.target.files);
+    const fileReaders = [];
+
+    files.forEach((file) => {
+      if (file.type.startsWith("text/")) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const text = event.target.result;
+          const textFile = new File([text], file.name, { type: file.type });
+          setSelectedFiles((prevFiles) => [...prevFiles, textFile]);
+        };
+        reader.readAsText(file, "UTF-8");
+        fileReaders.push(reader);
+      } else {
+        setSelectedFiles((prevFiles) => [...prevFiles, file]);
+      }
+    });
+
     transferText();
     setShowFileModal(true);
-  };
 
+    e.target.value = null;
+  };
 
   const handleSendFilesSequentially = () => {
     const newMessages = [];
-    for (const file of selectedFiles) {
+
+    if (selectedFiles.length > 0) {
       newMessages.push({
-        file,
+        files: selectedFiles,
+        text: message.trim() || fileMessage.trim(), // Добавляем текстовое сообщение
         isMine: true,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       });
-    }
-    if (message.trim()) {
+    } else if (message.trim()) {
       newMessages.push({
         text: message.trim(),
         isMine: true,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       });
-    }
-    else if (fileMessage.trim()) {
+    } else if (fileMessage.trim()) {
       newMessages.push({
         text: fileMessage.trim(),
         isMine: true,
@@ -104,24 +130,35 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
       fileTextarea.style.height = 'auto';
     }
   };
+
+
   const handleCloseFileModal = () => {
     setSelectedFiles([]);
     transferText();
     setShowFileModal(false);
   };
+
   const transferText = () => {
     if (showFileModal) {
       setMessage(fileMessage);
       setFileMessage('');
-
     } else {
       setFileMessage(message);
       setMessage('');
     }
   };
-const handleFileInputChange = (e) => {
-  setFileMessage(e.target.value);
-};
+
+  const handleFileInputChange = (e) => {
+    setFileMessage(e.target.value);
+  };
+
+  const truncateFileName = (fileName, maxLength = 25) => {
+    if (fileName.length <= maxLength) {
+      return fileName;
+    }
+    const truncated = fileName.slice(0, maxLength / 2) + '...' + fileName.slice(-maxLength / 2);
+    return truncated;
+  };
 
   return (
     <div className="chat-container">
@@ -136,8 +173,8 @@ const handleFileInputChange = (e) => {
             <div key={index} className={`message ${msg.isMine ? 'my-message' : 'other-message'}`}>
               {!msg.isMine && <div className="message-username">{msg.username}</div>}
               <div className="message-text">
+                {msg.files && msg.files.map((file, i) => <FileMessage key={i} file={file} />)}
                 {msg.text}
-                {msg.file && <div className="message-file"><a href={URL.createObjectURL(msg.file)} target="_blank" rel="noopener noreferrer">{msg.file.name}</a></div>}
               </div>
               <div className="message-time">
                 {msg.time}
@@ -187,7 +224,7 @@ const handleFileInputChange = (e) => {
             <div className="file-list">
               {selectedFiles.map((file, index) => (
                 <div key={index} className="file-item">
-                  <span>{file.name}</span>
+                  <span>{truncateFileName(file.name)}</span>
                   <span>{(file.size / 1024).toFixed(1)} KB</span>
                 </div>
               ))}

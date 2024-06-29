@@ -207,7 +207,8 @@ body {
 
 /* front/src/components/ChatsPage.css */
   background-image: url('../../public/Снимок экрана 2024-05-23 152501.png');
-
+  background-size: cover; /* или 'contain', в зависимости от нужного эффекта */
+  background-repeat: no-repeat;
   flex: 1;
   display: flex;
   /*background-color: #99BA92;
@@ -239,9 +240,15 @@ body {
   height: fit-content;
 }
 
+@media (max-width: 900px) {
+  .chat-window {
+    width: 98%;
+  }
+}
+
 .message {
   max-width: 65%;
-  padding: .7rem;
+  padding: .5rem;
   border-radius: 15px;
   margin-bottom: 0.7rem;
   position: relative;
@@ -268,14 +275,15 @@ body {
   margin-bottom: 0.4rem;
 }
 
-.message-text {
-  margin-bottom: 0.4rem;
-}
-
 .message-time {
+  margin-top: 3px;
   font-size: 0.8em;
   color: #999;
   text-align: right;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .message-input-container {
@@ -304,6 +312,12 @@ body {
   max-width: 800px;
   min-width: 200px;
   border: none;
+}
+
+@media (max-width: 900px) {
+  .message-input-wrapper {
+    width: 100%;
+  }
 }
 
 .message-input {

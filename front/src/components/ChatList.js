@@ -1,3 +1,4 @@
+// список чатов с поиском
 import React, { useState } from 'react';
 
 const ChatList = ({ chats, onSelectChat }) => {
