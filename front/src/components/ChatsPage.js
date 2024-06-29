@@ -76,7 +76,7 @@ const ChatsPage = () => {
             backButtonClick={handleBackButtonClick}
           />
         ) : (
-          !isMobile && <div className="select-chat-prompt"><h1>Выберите чат для просмотра</h1></div>
+          !isMobile && <div className="select-chat-prompt"></div>
         )}
       </div>
     </div>

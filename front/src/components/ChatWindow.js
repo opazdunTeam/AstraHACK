@@ -20,6 +20,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     autoResizeTextarea(document.getElementById('fileMessageInput'));
   }, [fileMessage]);
 
+  // Функция для отправки сообщений
   const handleSend = () => {
     if (message.trim() || selectedFiles.length > 0) {
       handleSendFilesSequentially();
@@ -31,12 +32,14 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     }
   };
 
+  // Функция для прокрутки вниз при добавлении нового сообщения
   const scrollToBottom = () => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   };
 
+  // Обработчик для обработки нажатия клавиши Enter
   const handleKeyPress = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -52,25 +55,28 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     }
   };
 
+  // Функция для автоматического изменения высоты текстового поля
   const autoResizeTextarea = (textarea) => {
     if (textarea) {
       textarea.style.height = 'auto';
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
   };
+  // Пример переписки 2х юзеров
+  // messages = [
+  //   { text: "Привет!", isMine: true, username: "User1" },
+  //   { text: "Как дела?", isMine: false, username: "Дарк" },
+  //   { text: "Отлично, спасибо!", isMine: true, username: "User1" },
+  //   { text: "Рад слышать!", isMine: false, username: "Андрей Беляев" },
+  // ];
 
-// Пример использования добавления имён к сообщениям
-//  messages = [
-//    { text: "Привет!", isMine: true, username: "User1" },
-//    { text: "Как дела?", isMine: false, username: "User2" },
-//    { text: "Отлично, спасибо!", isMine: true, username: "User1" },
-//    { text: "Рад слышать!", isMine: false, username: "User2" },
-//  ];
+ // Функция для открытия диалога выбора файла
   const handleFileClick = () => {
     document.getElementById('fileInput').click();
     autoResizeTextarea(document.getElementById('messageInput'));
   };
 
+  // Обработчик выбранных файлов для соблюдения форматов
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     const fileReaders = [];
@@ -96,6 +102,7 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     e.target.value = null;
   };
 
+  // Функция для отправки файлов
   const handleSendFilesSequentially = () => {
     const newMessages = [];
 
@@ -132,12 +139,14 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
   };
 
 
+  // Функция для закрытия модального окна выбора файла
   const handleCloseFileModal = () => {
     setSelectedFiles([]);
     transferText();
     setShowFileModal(false);
   };
 
+  // Функция для переноса текста в соответствующее поле (в зависимости от активного модального окна)
   const transferText = () => {
     if (showFileModal) {
       setMessage(fileMessage);
@@ -148,10 +157,12 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     }
   };
 
+  // Обработчик изменения в текстовом поле ввода для файла
   const handleFileInputChange = (e) => {
     setFileMessage(e.target.value);
   };
 
+  // Функция для обрезки имени файла, чтобы оно умещалось в пределах максимальной длины
   const truncateFileName = (fileName, maxLength = 25) => {
     if (fileName.length <= maxLength) {
       return fileName;
@@ -159,6 +170,17 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
     const truncated = fileName.slice(0, maxLength / 2) + '...' + fileName.slice(-maxLength / 2);
     return truncated;
   };
+
+  // генерация цвета по имени
+  const stringToColor = (str) => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    const color = `hsl(${hash % 360}, 70%, 50%)`; // Генерация цвета в формате HSL
+    return color;
+  }  ;
+
 
   return (
     <div className="chat-container">
@@ -170,16 +192,19 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
       <div className="chat-window-wrapper" ref={chatContainerRef}>
         <div className="chat-window">
           {messages.map((msg, index) => (
-            <div key={index} className={`message ${msg.isMine ? 'my-message' : 'other-message'}`}>
-              {!msg.isMine && <div className="message-username">{msg.username}</div>}
-              <div className="message-text">
+              <div key={index} className={`message ${msg.isMine ? 'my-message' : 'other-message'}`}>
+                {!msg.isMine &&
+                    <div className="message-username" style={{color: stringToColor(msg.username)}}>
+                      {msg.username}
+                    </div>}
+                <div className="message-text">
                 {msg.files && msg.files.map((file, i) => <FileMessage key={i} file={file} />)}
-                {msg.text}
+                  {msg.text}
+                </div>
+                <div className="message-time">
+                  {msg.time}
+                </div>
               </div>
-              <div className="message-time">
-                {msg.time}
-              </div>
-            </div>
           ))}
         </div>
       </div>
