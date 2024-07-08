@@ -24,3 +24,6 @@ Chats page mibile adaaptation:
 
 ## Video demonstration
 [<img src="https://img.youtube.com/vi/7pEtsMAfOIM/maxresdefault.jpg" width="100%">](https://youtu.be/7pEtsMAfOIM)
+
+## Installation
+[Read the manual](front/README.md)
