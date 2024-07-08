@@ -1,4 +1,4 @@
-![image](https://github.com/opazdunTeam/AstraHACK/assets/97724072/0e390fe8-4e9a-4746-a52c-fbb5a132c7ad)# AstraHACK
+## AstraHACK
 ![Language](https://img.shields.io/badge/language-Swift%205-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -23,8 +23,6 @@ Chats page mibile adaaptation:
 ![Mobile chat](https://private-user-images.githubusercontent.com/97724072/346596229-2860340a-c64c-4089-ade8-8e508197de79.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjA0NTAyODcsIm5iZiI6MTcyMDQ0OTk4NywicGF0aCI6Ii85NzcyNDA3Mi8zNDY1OTYyMjktMjg2MDM0MGEtYzY0Yy00MDg5LWFkZTgtOGU1MDgxOTdkZTc5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA4VDE0NDYyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQ1ZWY1Yjk4OTlhNDhjOGI1MWYyNTAzMjNjMGYwYzEwY2I0NjVlMzMwZTFjYWU2Y2NmZDI4M2JkYWQyZGRkOGMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.n-UjvisUr15P7FoYthbtJpuEzdu1hk6bOBIGTX7yoQo)
 
 ## Video demonstration
-
-
 <video src='https://youtu.be/7pEtsMAfOIM?si=NqedJedDk-5HtM-f' width=180/>
 
 <video src='https://youtu.be/7pEtsMAfOIM' width=180/>
