@@ -1,5 +1,5 @@
 ## AstraHACK
-![Language](https://img.shields.io/badge/language-JavaScript%205-yellow)
+![Language](https://img.shields.io/badge/language-JavaScript%20-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Private messenger project for the AstraLinux hackathon.
