@@ -20,4 +20,5 @@ Chats page mibile adaaptation:
 
 ## Video demonstration
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7pEtsMAfOIM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<video src='https://youtu.be/7pEtsMAfOIM' width=180/>
 https://youtu.be/7pEtsMAfOIM
