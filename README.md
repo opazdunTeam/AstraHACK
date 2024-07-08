@@ -1,4 +1,4 @@
-![image](https://github.com/opazdunTeam/astraHACK/assets/97724072/c787165e-0fbd-4b3e-b97e-089b307e10e4)# astraHACK
+# astraHACK
 ![Language](https://img.shields.io/badge/language-Swift%205-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
