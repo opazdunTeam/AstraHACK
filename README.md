@@ -11,7 +11,7 @@ Private messenger project for the AstraLinux hackathon.
   - [Registration form](#registration-form)
   - [Chats page](#chats-page)
   - [Video demonstration](#video-demonstration)
--[Installation](#installation)
+- [Installation](#installation)
 
 ## Description of features
 Adaptability for mobile devices, registration and authorization, file transfer, user search.
