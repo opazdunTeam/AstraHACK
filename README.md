@@ -1,4 +1,4 @@
-# AstraHACK
+![image](https://github.com/opazdunTeam/AstraHACK/assets/97724072/0e390fe8-4e9a-4746-a52c-fbb5a132c7ad)# AstraHACK
 ![Language](https://img.shields.io/badge/language-Swift%205-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -27,4 +27,11 @@ Chats page mibile adaaptation:
 
 <video src='https://youtu.be/7pEtsMAfOIM?si=NqedJedDk-5HtM-f' width=180/>
 
+<video src='https://youtu.be/7pEtsMAfOIM' width=180/>
+
+
 https://youtu.be/7pEtsMAfOIM
+
+<video src='https://www.youtube.com/watch?v=7pEtsMAfOIM&ab_channel=localface' width=180/>
+
+[![Demo CountPages alpha](https://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=7pEtsMAfOIM&ab_channel=localface)
