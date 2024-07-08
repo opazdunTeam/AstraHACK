@@ -23,4 +23,4 @@ Chats page mibile adaaptation:
 ![Mobile chat](https://private-user-images.githubusercontent.com/97724072/346596229-2860340a-c64c-4089-ade8-8e508197de79.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjA0NTAyODcsIm5iZiI6MTcyMDQ0OTk4NywicGF0aCI6Ii85NzcyNDA3Mi8zNDY1OTYyMjktMjg2MDM0MGEtYzY0Yy00MDg5LWFkZTgtOGU1MDgxOTdkZTc5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA4VDE0NDYyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQ1ZWY1Yjk4OTlhNDhjOGI1MWYyNTAzMjNjMGYwYzEwY2I0NjVlMzMwZTFjYWU2Y2NmZDI4M2JkYWQyZGRkOGMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.n-UjvisUr15P7FoYthbtJpuEzdu1hk6bOBIGTX7yoQo)
 
 ## Video demonstration
-[<img src="https://img.youtube.com/vi/7pEtsMAfOIM/maxresdefault.jpg" width="80%">](https://youtu.be/7pEtsMAfOIM)
+[<img src="https://img.youtube.com/vi/7pEtsMAfOIM/maxresdefault.jpg" width="100%">](https://youtu.be/7pEtsMAfOIM)
