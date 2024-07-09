@@ -24,7 +24,7 @@ Interesting things: beautiful buttons, smart resizing of text fields and moving 
 
 Main page mobile adaptation
 
-<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/0732e987-c9da-4044-8f45-d4749ab01844" width="100%" alt="Mobile main page">
+<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/0732e987-c9da-4044-8f45-d4749ab01844" width="50%" alt="Mobile main page">
 
 ##### Registration form
 <img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/0e877e6f-57ab-459a-bcde-a1fd7661608f" width="100%" alt="Mobile main page">
@@ -34,8 +34,8 @@ Main page mobile adaptation
 
 Chats page mibile adaaptation
 
-<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/fe45943b-33a9-4f21-885f-0396ac33f603" width="100%" alt="Mobile chats page">
-<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/e8ebb0c8-c0bd-4a22-89c8-929bbf07e2a2" width="100%" alt="Mobile chat">
+<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/fe45943b-33a9-4f21-885f-0396ac33f603" width="50%" alt="Mobile chats page">
+<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/e8ebb0c8-c0bd-4a22-89c8-929bbf07e2a2" width="50%" alt="Mobile chat">
 
 #### Video demonstration (click to view)
 [<img src="https://img.youtube.com/vi/7pEtsMAfOIM/maxresdefault.jpg" width="100%">](https://youtu.be/7pEtsMAfOIM)
