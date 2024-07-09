@@ -19,7 +19,8 @@ Interesting things: beautiful buttons, smart resizing of text fields and moving 
 
 ## Demonstration
 #### Main page
-<img src="https://private-user-images.githubusercontent.com/97724072/346591882-5ec507e9-7e5f-48ee-aa91-1b08b128ce25.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjA0NTAyODcsIm5iZiI6MTcyMDQ0OTk4NywicGF0aCI6Ii85NzcyNDA3Mi8zNDY1OTE4ODItNWVjNTA3ZTktN2U1Zi00OGVlLWFhOTEtMWIwOGIxMjhjZTI1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA4VDE0NDYyN1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTI3MWYwOWI5ZjNjZjQxOGY2YWMzYjgxOTgzYmJkYjAyYmZmYzNmZjUzMjQyNTAxZTVkNTBlYTg5Y2Y4Yjk0OTQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.lF33kDAb_6WhidesrOtk1T3DbBXg_Oe2yRBAZzbKUFc" width="100%" alt="Main page">
+
+<img src="https://github.com/opazdunTeam/AstraHACK/assets/97724072/281c96a6-54ce-4234-aed8-76d049f854ea" width="100%" alt="Main page">
 
 Main page mobile adaptation
 
