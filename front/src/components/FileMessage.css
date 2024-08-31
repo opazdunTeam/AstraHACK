@@ -1,0 +1,33 @@
+.file-message {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 1rem;
+  margin-right: 2px;
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.svg-container {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.file-message svg {
+  margin-right: 10px;
+}
+
+.file-name {
+  display: block;
+  margin-top: 3px;
+}
+.file-size{
+  display: flex;
+  margin-top: 3px;
+}
+
+.download-button {
+  position: relative;
+  text-decoration: none;
+}

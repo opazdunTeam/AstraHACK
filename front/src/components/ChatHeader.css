@@ -1,0 +1,48 @@
+.chat-header-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px 10px 15px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.back-button {
+  display: none;
+  height: 45px;
+  weight: 45px;
+  margin-right: 15px;
+  background-color: transparent;
+  border-radius: 50%;
+  border:none;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+.back-button {
+    display: block; /* Отображаем кнопку "Назад" на мобильных устройствах */
+  }
+}
+
+.chat-header-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.chat-header-button{
+  height: 45px;
+  weight: 45px;
+  background-color: transparent;
+  border-radius: 50%;
+  border:none;
+  cursor: pointer;
+}
+.chat-header-button svg{
+    padding-top: 3px;
+}
+.chat-header-button:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-header svg {
+
+}
