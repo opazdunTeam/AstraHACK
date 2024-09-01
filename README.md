@@ -41,4 +41,6 @@ Chats page mibile adaaptation
 [<img src="https://img.youtube.com/vi/7pEtsMAfOIM/maxresdefault.jpg" width="100%">](https://youtu.be/7pEtsMAfOIM)
 
 ## Installation
-[Instruction](front/README.md)
+[Frontend instruction](front/README.md)
+[Backend instruction](master/back/README.md)
+
