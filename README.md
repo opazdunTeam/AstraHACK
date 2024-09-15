@@ -43,5 +43,5 @@ Chats page mibile adaaptation
 ## Installation
 [Frontend instruction](front/README.md)
 
-[Backend instruction](https://github.com/opazdunTeam/AstraHACK/blob/master/back/README.md)
+[Backend instruction](back/README.md)
 
