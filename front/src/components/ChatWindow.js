@@ -11,6 +11,29 @@ const ChatWindow = ({ chatName, chatAvatar, messages, onSendMessage, backButtonC
   const chatContainerRef = useRef(null);
 
 
+  const sendMessageToServer = async (messageData) => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(messageData),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+  
+      const result = await response.json();
+      console.log('Message sent:', result);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
+  
+
+
   useEffect(() => {
     autoResizeTextarea(document.getElementById('messageInput'));
     scrollToBottom();

@@ -1,5 +1,5 @@
-// список чатов с поиском
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const ChatList = ({ chats, onSelectChat }) => {
   const [selectedChatId, setSelectedChatId] = useState(null);
@@ -7,29 +7,65 @@ const ChatList = ({ chats, onSelectChat }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isInputFocused, setIsInputFocused] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log('Updated chats:', chats);
+  }, [chats]);
+  
+  useEffect(() => {
+    console.log('Selected chat ID:', selectedChatId);
+  }, [selectedChatId]);
+  
+
   const handleSelectChat = (chat) => {
+    // Убедитесь, что поле `messages` существует, если нет - попробуйте использовать поле `message`
+    const messages = chat.messages || JSON.parse(chat.message || '[]');
+  
+    if (!messages || !Array.isArray(messages)) {
+      console.error("Selected chat is missing or has no valid messages.");
+      return;
+    }
+  
     setSelectedChatId(chat.id);
-    onSelectChat(chat);
+    onSelectChat({ ...chat, messages }); // Передайте объект с правильным полем `messages`
     setSearchTerm('');
     setSuggestions([]);
+  
+    const queryParams = new URLSearchParams(location.search);
+    queryParams.set('chat', chat.id);
+    navigate(`/chats?${queryParams.toString()}`);
   };
+  
 
-  const truncateText = (text, maxLength) => {
-    if (!text) return '';
-    if (text.length <= maxLength) {
-      return text;
+  const searchChatsOnServer = async (searchTerm) => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/search_chats?query=${encodeURIComponent(searchTerm)}`);
+      if (!response.ok) {
+        throw new Error('Ошибка сети');
+      }
+      const data = await response.json();
+      setSuggestions(data);  // Предполагается, что сервер возвращает массив чатов
+    } catch (error) {
+      console.error('Ошибка при поиске чатов:', error);
+      setSuggestions([]);
     }
-    return text.substr(0, maxLength) + '...';
   };
 
   const handleChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
-    const filteredSuggestions = chats.filter(chat => chat.name.toLowerCase().startsWith(value.toLowerCase()));
-    setSuggestions(filteredSuggestions);
+
+    if (value) {
+      searchChatsOnServer(value);  // Запускаем поиск на сервере
+    } else {
+      setSuggestions([]);  // Очищаем подсказки, если поле поиска пустое
+    }
   };
 
   const handleSelectSuggestion = (suggestion) => {
+    console.log('Suggestion selected:', suggestion);  // Добавим логирование
     handleSelectChat(suggestion);
     setSuggestions([]);
   };
@@ -37,6 +73,12 @@ const ChatList = ({ chats, onSelectChat }) => {
   const handleInputFocus = () => {
     setIsInputFocused(true);
   };
+
+  const truncateText = (text, maxLength) => {
+    if (!text) return '';
+    return text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
+  };
+  
 
   const handleInputBlur = () => {
     setTimeout(() => {
@@ -83,7 +125,7 @@ const ChatList = ({ chats, onSelectChat }) => {
         )}
       </div>
       {chats.map((chat) => {
-        const lastMessage = chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
+        const lastMessage = chat.messages && chat.messages.length > 0 ? chat.messages[chat.messages.length - 1] : null;
         const isSelected = chat.id === selectedChatId;
 
         return (

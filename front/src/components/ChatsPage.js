@@ -1,18 +1,60 @@
-// файл для отображения страницы и логики страницы чатов
 import React, { useState, useEffect } from 'react';
 import ChatList from './ChatList';
 import ChatWindow from './ChatWindow';
 import './ChatsPage.css';
+import { useLocation } from 'react-router-dom';
 
 const ChatsPage = () => {
   const [selectedChat, setSelectedChat] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-  //переменная для передачи информации по чатам
-  const [chats, setChats] = useState([
-    { name: 'Андрей Беляев', id: 1, avatar: 'https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg', messages: [] }, // messages: [ text: str, isMine: bool, time: Date ]
-    { name: 'Александр Жданов', id: 2, avatar: 'https://otzz.ru/wp-content/uploads/2023/11/kuplinov-avatar-1.webp', messages: [] },
-    // Добавьте больше чатов по необходимости
-  ]);
+  const [chats, setChats] = useState([]);  // Инициализируем как пустой массив
+
+  const location = useLocation();
+
+  const GetChats = async () => {
+    const queryParams = new URLSearchParams(location.search);
+    const username = queryParams.get('username');
+    const password = queryParams.get('password');
+
+    try {
+      const response = await fetch("http://127.0.0.1:8000/chats", {
+        method: "POST",
+        headers: { 
+          "Accept": "application/json", 
+          "Content-Type": "application/json" 
+        },
+        body: JSON.stringify({ 
+          username: username,
+          password: password
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+
+      if (Array.isArray(data)) {
+        setChats(data);  // Устанавливаем данные только если это массив
+      } else {
+        console.error('Expected array but got:', data);
+        setChats([]);  // Обнуляем состояние, если данные не массив
+      }
+    } catch (error) {
+      console.error('Ошибка при получении чатов:', error);
+      setChats([]);  // Обнуляем состояние при ошибке
+    }
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      GetChats();
+    }, 1000);
+
+    // Очистка интервала при размонтировании компонента
+    return () => clearInterval(intervalId);
+  }, [location.search]);
 
   const handleSelectChat = (chat) => {
     setSelectedChat(chat);
@@ -40,7 +82,6 @@ const ChatsPage = () => {
     }
   };
 
-
   const handleResize = () => {
     setIsMobile(window.innerWidth <= 900);
   };
@@ -52,19 +93,14 @@ const ChatsPage = () => {
     };
   }, []);
 
-  const handleChatSelect = (chatId) => {
-    setSelectedChat(chatId);
-  };
-
   const handleBackButtonClick = () => {
     setSelectedChat(null);
   };
 
-
   return (
     <div className="chats-page">
       {(!isMobile || !selectedChat) && (
-        <ChatList chats={chats} onSelectChat={handleSelectChat} handleGoButtonClick={handleSelectChat} />
+        <ChatList chats={chats} onSelectChat={handleSelectChat} />
       )}
       <div className="chat-container">
         {selectedChat ? (

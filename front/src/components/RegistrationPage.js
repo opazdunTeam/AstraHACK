@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './RegistrationPage.css'; // Assuming the styles are in this file
 
 const RegistrationPage = () => {
@@ -9,6 +10,18 @@ const RegistrationPage = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+
+  const sha256 = async (message) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(message);
+    const hash = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hash));
+    const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+};
+
 
   useEffect(() => {
     validateForm();
@@ -44,19 +57,44 @@ const RegistrationPage = () => {
     setIsFormValid(usernameValid && passwordValid);
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
 
     if (isFormValid) {
-      setSuccessMessage('Вы зарегистрированы');
-      setUsername('');
-      setPassword('');
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/register", {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({ 
+            username: username,
+            password: password
+          })
+        });
+  
+        if (response.ok) {
+          setSuccessMessage('Вы зарегистрированы');
+          setUsername('');
+          setPassword('');
+          const password256 = await sha256(password);
+          navigate('/chats?username=' + username + "&password=" + password256); // редирект на /chats после успешного входа
+          console.log('Успешная регистрация:', response.json())
+        } else {
+          console.log('Ошибка при реистрации:', response.status);
+          setSuccessMessage('Данный пользователь уже существует');
+        }
+      } catch (error) {
+        console.error('Ошибка сети:', error);
+      }
+
+      
     }
   };
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
+
 
   return (
     <div className="registration-container">

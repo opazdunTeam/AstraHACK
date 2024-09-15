@@ -18,4 +18,9 @@ cd front
 ```bash
 npm start
 ```
+## Тестовый пользователь
+
+login: admin
+
+password: 123456789
 
