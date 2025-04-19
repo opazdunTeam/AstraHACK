@@ -14,8 +14,15 @@ Private messenger project for the AstraLinux hackathon.
 - [Installation](#installation)
 
 ## Description of features
-Adaptability for mobile devices, registration and authorization, file transfer, user search.
-Interesting things: beautiful buttons, smart resizing of text fields and moving text between input fields for messages and files, automatic coloring of names.
+### Backend
+- REST API on FastAPI
+- Dynamic SQLite Database
+- JWT authorization token
+- CRUD operations for tasks
+### Frontend
+- React application
+- Registration and authorization form
+- Chat list
 
 ## Demonstration
 #### Main page
