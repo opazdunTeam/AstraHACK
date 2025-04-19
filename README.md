@@ -1,4 +1,5 @@
 ## AstraHACK
+![Language](https://img.shields.io/badge/language-Python%20-blue)
 ![Language](https://img.shields.io/badge/language-JavaScript%20-yellow)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
