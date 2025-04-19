@@ -18,7 +18,6 @@ Private messenger project for the AstraLinux hackathon.
 - REST API on FastAPI
 - SQLite Database
 - JWT authorization token
-- CRUD operations for tasks
 ### Frontend
 - React application
 - Registration and authorization form
