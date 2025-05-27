@@ -17,7 +17,7 @@ class SQLdb():
             
             chats = json.dumps([
                 { "name": 'Андрей Беляев', "id": 1, "avatar": 'https://i.pinimg.com/originals/96/85/73/968573016b60734245728f7845b2ae80.jpg', "messages": [] },
-                { "name": 'Александр Жданов', "id": 2, "avatar": 'https://otzz.ru/wp-content/uploads/2023/11/kuplinov-avatar-1.webp', "messages": [] },
+                { "name": 'Александр Жданов', "id": 2, "avatar": 'https://avatars.githubusercontent.com/u/97724072?v=4', "messages": [] },
             ])
 
             password = "123456789"
